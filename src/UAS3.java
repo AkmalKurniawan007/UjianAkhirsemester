@@ -3,17 +3,17 @@ import java.util.Random;
 
 public class UAS3 {
     public static void main(String[] args) {
-        ArrayList<Integer> speeds = captureSpeeds(200);
-        ArrayList<Integer> aboveThreshold = filterAboveThreshold(speeds, 80, 100);
-        ArrayList<Integer> belowThreshold = filterBelowThreshold(speeds, 80);
+        ArrayList<Integer> speeds = Kendaraanrandom(200);
+        ArrayList<Integer> aboveThreshold = sortir(speeds, 80, 100);
+        ArrayList<Integer> belowThreshold = sortir(speeds, 80);
 
-        System.out.println("Speeds above 80 km/h and below 100 km/h:");
-        displaySpeeds(aboveThreshold);
-        System.out.println("\nSpeeds below 80 km/h:");
-        displaySpeeds(belowThreshold);
+        System.out.println("Kendaraan kecepatan 80 km/h sampai 100 km/h:");
+        tampilankecepatan(aboveThreshold);
+        System.out.println("Kendaraan Di bawah  80 km/h:");
+        tampilankecepatan(belowThreshold);
     }
 
-    public static ArrayList<Integer> captureSpeeds(int count) {
+    public static ArrayList<Integer> Kendaraanrandom(int count) {
         ArrayList<Integer> speeds = new ArrayList<>();
         Random random = new Random();
 
@@ -27,7 +27,7 @@ public class UAS3 {
         return speeds;
     }
 
-    public static ArrayList<Integer> filterAboveThreshold(ArrayList<Integer> speeds, int min, int max) {
+    public static ArrayList<Integer> sortir(ArrayList<Integer> speeds, int min, int max) {
         ArrayList<Integer> filteredSpeeds = new ArrayList<>();
         for (int speed : speeds) {
             if (speed >= min && speed <= max) {
@@ -37,7 +37,7 @@ public class UAS3 {
         return filteredSpeeds;
     }
 
-    public static ArrayList<Integer> filterBelowThreshold(ArrayList<Integer> speeds, int max) {
+    public static ArrayList<Integer> sortir(ArrayList<Integer> speeds, int max) {
         ArrayList<Integer> filteredSpeeds = new ArrayList<>();
         for (int speed : speeds) {
             if (speed < max) {
@@ -47,7 +47,7 @@ public class UAS3 {
         return filteredSpeeds;
     }
 
-    public static void displaySpeeds(ArrayList<Integer> speeds) {
+    public static void tampilankecepatan(ArrayList<Integer> speeds) {
         for (int speed : speeds) {
             System.out.println(speed + " km/h");
         }
